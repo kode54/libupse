@@ -26,6 +26,8 @@
 #include "upse.h"
 #include "upse-ps1-memory-manager.h"
 
+#include "Neill/spu.h"
+
 ////////////////////////////////////////////////////////////////////////
 // READ DMA (many values)
 ////////////////////////////////////////////////////////////////////////
@@ -36,12 +38,9 @@ void upse_ps1_spu_dma_read_memory(upse_spu_state_t *spu, u32 usPSXMem, int iSize
 
     for (i = 0; i < iSize; i++)
     {
-	*(u16 *) PSXM(spu->ins, usPSXMem) = spu->spuMem[spu->spuAddr >> 1];	// spu addr got by writeregister
+	*(u16 *) PSXM(spu->ins, usPSXMem) = spu_lh(spu->pCore, 0x1F801DA8);	// spu addr got by writeregister
 	usPSXMem += 2;
-	spu->spuAddr += 2;		// inc spu addr
-	if (spu->spuAddr > 0x7ffff)
-	    spu->spuAddr = 0;	// wrap
-    }
+	}
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -62,12 +61,9 @@ void upse_ps1_spu_dma_write_memory(upse_spu_state_t *spu, u32 usPSXMem, int iSiz
 
     for (i = 0; i < iSize; i++)
     {
-	spu->spuMem[spu->spuAddr >> 1] = *(u16 *) PSXM(spu->ins, usPSXMem);
+	spu_sh(spu->pCore, 0x1F801DA8, *(u16 *) PSXM(spu->ins, usPSXMem));
 	usPSXMem += 2;		// spu addr got by writeregister
-	spu->spuAddr += 2;		// inc spu addr
-	if (spu->spuAddr > 0x7ffff)
-	    spu->spuAddr = 0;	// wrap
-    }
+	}
 }
 
 ////////////////////////////////////////////////////////////////////////

@@ -9,6 +9,9 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
+    <Filter Include="Neill">
+      <UniqueIdentifier>{6e75b2f7-ff52-4ccc-8922-27f3cd5075f3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="upse.h">
@@ -62,9 +65,6 @@
     <ClInclude Include="upse-ps1-spu-abstract.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="upse-ps1-spu-adsr-filter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="upse-ps1-spu-base.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -75,9 +75,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="upse-ps1-spu-register-io.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="upse-ps1-spu-reverb.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="upse-ps2-iop-private.h">
@@ -94,6 +91,15 @@
     </ClInclude>
     <ClInclude Include="upse-types.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Neill\emuconfig.h">
+      <Filter>Neill</Filter>
+    </ClInclude>
+    <ClInclude Include="Neill\spu.h">
+      <Filter>Neill</Filter>
+    </ClInclude>
+    <ClInclude Include="Neill\spucore.h">
+      <Filter>Neill</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -142,9 +148,6 @@
     <ClCompile Include="upse_ps1_memory_manager.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="upse_ps1_spu_adsr_filter.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="upse_ps1_spu_base.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -158,9 +161,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="upse_ps1_spu_register_io.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="upse_ps1_spu_reverb.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="upse_ps2_iop_base.c">
@@ -177,6 +177,12 @@
     </ClCompile>
     <ClCompile Include="upse_util.c">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Neill\spu.c">
+      <Filter>Neill</Filter>
+    </ClCompile>
+    <ClCompile Include="Neill\spucore.c">
+      <Filter>Neill</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

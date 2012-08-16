@@ -11,6 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Neill\emuconfig.h" />
+    <ClInclude Include="Neill\spu.h" />
+    <ClInclude Include="Neill\spucore.h" />
     <ClInclude Include="upse-container-xsf.h" />
     <ClInclude Include="upse-debug.h" />
     <ClInclude Include="upse-eventloop.h" />
@@ -27,12 +30,10 @@
     <ClInclude Include="upse-ps1-hal.h" />
     <ClInclude Include="upse-ps1-memory-manager.h" />
     <ClInclude Include="upse-ps1-spu-abstract.h" />
-    <ClInclude Include="upse-ps1-spu-adsr-filter.h" />
     <ClInclude Include="upse-ps1-spu-base.h" />
     <ClInclude Include="upse-ps1-spu-dma-handler.h" />
     <ClInclude Include="upse-ps1-spu-features.h" />
     <ClInclude Include="upse-ps1-spu-register-io.h" />
-    <ClInclude Include="upse-ps1-spu-reverb.h" />
     <ClInclude Include="upse-ps2-iop-private.h" />
     <ClInclude Include="upse-r3000-abstract.h" />
     <ClInclude Include="upse-spu-internal.h" />
@@ -41,6 +42,14 @@
     <ClInclude Include="upse.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Neill\spu.c">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32_MSC;WIN32;EMU_COMPILE;EMU_LITTLE_ENDIAN;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32_MSC;WIN32;EMU_COMPILE;EMU_LITTLE_ENDIAN;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="Neill\spucore.c">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32_MSC;WIN32;EMU_COMPILE;EMU_LITTLE_ENDIAN;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32_MSC;WIN32;EMU_COMPILE;EMU_LITTLE_ENDIAN;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
     <ClCompile Include="upse_bios_manager.c" />
     <ClCompile Include="upse_container_xsf.c" />
     <ClCompile Include="upse_eventloop.c" />
@@ -56,13 +65,11 @@
     <ClCompile Include="upse_ps1_gpu.c" />
     <ClCompile Include="upse_ps1_hal.c" />
     <ClCompile Include="upse_ps1_memory_manager.c" />
-    <ClCompile Include="upse_ps1_spu_adsr_filter.c" />
     <ClCompile Include="upse_ps1_spu_base.c" />
     <ClCompile Include="upse_ps1_spu_dma_handler.c" />
     <ClCompile Include="upse_ps1_spu_lowpass_filter.c" />
     <ClCompile Include="upse_ps1_spu_nyquist_filter.c" />
     <ClCompile Include="upse_ps1_spu_register_io.c" />
-    <ClCompile Include="upse_ps1_spu_reverb.c" />
     <ClCompile Include="upse_ps2_iop_base.c" />
     <ClCompile Include="upse_r3000_abstract.c" />
     <ClCompile Include="upse_r3000_bytecode_evaluator.c" />

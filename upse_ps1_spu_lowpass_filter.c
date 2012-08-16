@@ -22,8 +22,6 @@
 #include "upse-ps1-spu-base.h"
 #include "upse-spu-internal.h"
 #include "upse-ps1-spu-register-io.h"
-#include "upse-ps1-spu-reverb.h"
-#include "upse-ps1-spu-adsr-filter.h"
 
 #include "upse.h"
 #include "upse-ps1-memory-manager.h"
