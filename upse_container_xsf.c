@@ -329,7 +329,9 @@ upse_time_to_ms(const char *str)
     s[99] = 0;
 
     for (x = strlen(s); x >= 0; x--)
-	if (s[x] == '.' || s[x] == ',')
+    	if (s[strlen(s)-1] == '0' && c == 0 && acc == 0)
+	    s[x]=0;
+	else if (s[x] == '.' || s[x] == ',')
 	{
 	    acc = atoi(s + x + 1);
 	    s[x] = 0;
