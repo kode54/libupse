@@ -89,6 +89,9 @@ int upse_ps1_spu_seek(upse_module_instance_t *ins, u32 t)
 
 int upse_ps1_spu_render(upse_spu_state_t *spu, u32 cycles)
 {
+    if ( spu == NULL )
+      return (0);
+
     s32 dosampies;
     s32 temp;
 
@@ -132,6 +135,8 @@ int upse_ps1_spu_render(upse_spu_state_t *spu, u32 cycles)
 void upse_ps1_spu_stop(upse_module_instance_t *ins)
 {
     upse_spu_state_t *spu = ins->spu;
+    if ( spu == NULL )
+      return;
 
     spu->decaybegin = 1;
     spu->decayend = 0;
